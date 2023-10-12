@@ -1,11 +1,14 @@
-const express = require('express')
-const app = express()
-const port = 4000
+const express = require('express');
+const app = express();
+const path = require('path');
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
+const loginRoutes = require('./routes/loginRoutes')
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.json())
+app.use(express.urlencoded({extended: true}));
+app.use('/', loginRoutes)
+
+app.listen(4000, ()=>{
+    console.log("server starts")
 })
