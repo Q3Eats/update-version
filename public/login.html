@@ -4,28 +4,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link>
     <title>Sign in to SkipTheDishes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="icon" href="/static/images/favicon.ico"/>
     <style>
-        @font-face {
-            font-family: 'Inter var';
-            src: url('/static/public/Css/Inter/Inter-VariableFont_slnt\,wght.ttf') format('woff2');
-        }
-
         body {
             margin: 0;
             padding: 0;
-            font-family: 'Inter var';
+            font-family: 'Inter', sans-serif;
         }
 
         .outer {
             display: flex;
             justify-content: space-between;
             gap: 100px;
-            padding-left: 13%;
-            padding-right: 14%;
-            padding-top: 4%;
-            padding-bottom: 127px;
         }
 
         .inner-sec {
@@ -41,6 +35,12 @@
             background-image: url("/static/images/Frame\ 1.png");
             background-repeat: no-repeat;
             background-size: cover;
+            background-position: center;
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .inner-first h1 {
@@ -331,12 +331,12 @@
                 <div class="user-input-data">
                     <form method="post" action="/admin/login">
                         <div class="input-saperarto">
-                            <label class="latter-label" for="fname">Username or email</label><br>
-                            <input class="input-enter" type="email" id="fname" name="fname"><br>
+                            <label class="latter-label" for="email">Username or email</label><br>
+                            <input class="input-enter" type="email" id="email" name="email"><br>
                         </div>
                         <div class="input-saperarto">
-                            <label class="latter-label" for="lname">Password</label><br>
-                            <input class="input-enter" type="password" id="lname" name="lname"><br><br>
+                            <label class="latter-label" for="password">Password</label><br>
+                            <input class="input-enter" type="password" id="password" name="password"><br><br>
                         </div>
                         <input type="submit" value="Login">
                         <div class="inline-flex">
