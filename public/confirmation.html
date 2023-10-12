@@ -9,7 +9,7 @@
     <style>
         @font-face {
             font-family: 'Inter var';
-            src: url('/register-form/public/Css/Inter/Inter-VariableFont_slnt\,wght.ttf') format('woff2');
+            src: url('/static/public/Css/Inter/Inter-VariableFont_slnt\,wght.ttf') format('woff2');
         }
 
         body {
@@ -38,8 +38,7 @@
         }
 
         section.main {
-            /* background-image: linear-gradient(207.27deg,#ff8000 71.44%,#fb6100); */
-            background-image: url("/register-form/public/images/Frame\ 1.png");
+            background-image: url("/static/images/Frame\ 1.png");
             background-repeat: no-repeat;
             background-size: cover;
         }
@@ -312,7 +311,7 @@
             <div class="inner-sec">
                 <div class="latter">
                     <div class="latter-imaoe">
-                        <img src="/register-form/public/images/skip.svg">
+                        <img src="/static/images/skip.svg">
                     </div>
                     <div class="countery">
                         <button type="button">
@@ -333,13 +332,13 @@
                     <form method="post" action="/admin/login">
                         <div class="input-saperarto">
                             <label class="latter-label" for="fname">Username or email</label><br>
-                            <input class="input-enter" type="email" id="fname" name="fname"><br>
+                            <input class="input-enter" type="email" id="fname" name="email"><br>
                         </div>
                         <div class="input-saperarto">
                             <label class="latter-label" for="lname">Password</label><br>
-                            <input class="input-enter" type="password" id="lname" name="lname"><br><br>
+                            <input class="input-enter" type="password" id="lname" name="password"><br><br>
                         </div>
-                        <input type="submit" value="Login">
+                        <input type="submit">
                         <div class="inline-flex">
                             <a class="inline-text" href="#">Become a Skip partner</a>
                             <a class="inline-text" href="#">Forgot password?</a>

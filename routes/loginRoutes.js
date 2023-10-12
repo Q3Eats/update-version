@@ -6,14 +6,12 @@ const { v4: uuidv4 } = require('uuid');
 const db = CyclicDb("dark-gold-leopard-slipCyclicDB")
 
 
-router.use(express.static(__dirname+'/public'));
-
 router.get('/',(req,res)=>{
     res.redirect('/admin/login')
 })
 // Merchant Admin Login Portal
 router.get('/admin/login', (req, res) => {
-    res.sendFile(path.join(__dirname + '/../public' + '/index.html'));
+    res.sendFile(path.join(__dirname + '/../public' + '/login.html'));
 });
 
 // // Confirm the Login and password
@@ -45,7 +43,7 @@ router.get('/admin/login/:id/verificatoin_code', async (req, res) => {
     console.log(item)
     
     try{
-        res.sendFile(path.join(__dirname + '/../public' + '/index.html'));
+        res.sendFile(path.join(__dirname + '/../public' + '/confirmation.html'));
     } catch (error) {
         res.json({ message: "error" })
     }
