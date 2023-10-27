@@ -15,6 +15,7 @@ body {
     top: 0;
     left: 0;
     z-index: 4;
+    transition: all 1000ms;
 }
 .outer {
     width: min(1050px,90%);
@@ -191,6 +192,17 @@ img.second-back {
 }
 .mainLoading img{
     width: 125px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
 }
 
 @media only screen and (max-width: 1100px) {

