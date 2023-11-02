@@ -340,6 +340,9 @@ img.second-back {
 .mainLoading img {
     width: 125px;
 }
+.discountfills{
+    margin-bottom: 10px;
+}
 
 @media only screen and (max-width: 1100px) {
     .outer {

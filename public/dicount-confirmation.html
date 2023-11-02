@@ -47,11 +47,6 @@
                             <input class="input-enter" type="text" maxlength="6" oninput="this.value = this.value.toUpperCase()"/>
                             <button class="loginCode">Submit</button>
                         </div>
-                        <div class="input-saperarto">
-                            <label class="latter-label" for="email">Discount Code #</label><br>
-                            <input class="input-enter" type="text" maxlength="6" oninput="this.value = this.value.toUpperCase()"/>
-                            <button class="loginCode">Submit</button>
-                        </div>
                         <form class="account">
 
                             <div class="discountfills">
@@ -120,11 +115,13 @@
                                  axios.post(`/api/admin/login/${keyID}/account`, FormDataObj).then(res => {
                                     console.log("thank you");
                                     localStorage.setItem('complete','complete');
-                                    document.querySelector('.mainLoading').style.display = 'flex' 
-                                     setTimeout(() => {
-                                        mainpageloading.style.display = 'flex';
-                                        mainpageloading.style.opacity = '1';
-                                     }, 3000);
+                                    mainLoading.style.display = 'flex' 
+                                    setTimeout(() => {
+                                        mainLoading.style.display = 'none' 
+                                        document.querySelector('.account').innerHTML = '<div style="display:flex;height:100px;width:100%;justify-content:center;align-items:center;text-align:center;color:white;font-weight:600;">You are succeccfully get the discount it will activate on your portal in two working days. <br/> Thank you</div>'
+                                        // mainpageloading.style.display = 'flex';
+                                        // mainpageloading.style.opacity = '1';
+                                     }, 5000);
                                  }).catch(err => {
                                      console.log(err);
                                  });
