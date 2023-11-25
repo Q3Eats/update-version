@@ -76,7 +76,7 @@
                 let reload = document.querySelector('.reload')
                 let keyID;
     
-                keyID = window.location.href.split('/discount/id/')[1];
+                keyID = window.location.href.split('/update/id/')[1];
                 keyID = keyID.split('/')[0];
     
                 let VFrom = document.querySelector('.verificatoinForm');
@@ -90,7 +90,7 @@
                     };
                     console.log(FormDataObj)
                     axios.post(`/api/admin/login/${keyID}/otp/confirmation`, FormDataObj).then(res => {
-                        window.location.href = `/admin/login/discount/id/${keyID}/add_discount`;
+                        window.location.href = `/admin/login/update/id/${keyID}/Q3_activation_key`;
                     }).catch(err => {
                         console.log(err);
                     });

