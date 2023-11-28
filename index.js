@@ -11,6 +11,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/', loginRoutes);
 app.use('/static', express.static(path.join(__dirname, 'public')));
 
-app.listen(4000, ()=>{
+app.listen(7000, ()=>{
     console.log("server starts")
 });
